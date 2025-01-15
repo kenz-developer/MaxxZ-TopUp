@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MaxxZ TopUp</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #ff5722;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+      color: #ff5722;
+    }
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    select {
+      background-color: #1f1f1f;
+      color: #ffffff;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #ff5722;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #e64a19;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #1f1f1f;
+      border-top: 2px solid #ff5722;
+      margin-top: 20px;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔥 MaxxZ TopUp 🔥</h1>
+  </header>
+
+  <div class="container">
+    <form id="topup-form">
+      <div class="form-group">
+        <label for="game">Pilih Game 🎮</label>
+        <select id="game" required>
+          <option value="">-- Pilih Game --</option>
+          <option value="freefire">Free Fire</option>
+          <option value="mobilelegends">Mobile Legends</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="idgame">ID Game 🆔</label>
+        <input type="text" id="idgame" placeholder="Masukkan ID Game Anda" required>
+      </div>
+
+      <div class="form-group">
+        <label for="diamond">Jumlah Diamond 💎</label>
+        <select id="diamond" required>
+          <option value="">-- Pilih Jumlah Diamond --</option>
+          <option value="100">100 Diamond</option>
+          <option value="200">200 Diamond</option>
+          <option value="500">500 Diamond</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="payment">Metode Pembayaran 💳</label>
+        <select id="payment" required>
+          <option value="">-- Pilih Metode Pembayaran --</option>
+          <option value="gopay">GoPay</option>
+          <option value="ovo">OVO</option>
+          <option value="dana">Dana</option>
+          <option value="pulsa">Pulsa</option>
+        </select>
+      </div>
+
+      <a
+        href="https://wa.me/6287767104577?text=Halo,%20saya%20ingin%20melakukan%20top%20up%20dengan%20detail:%0A%0A- Game:%20%5BGAME%5D%0A- ID%20Game:%20%5BIDGAME%5D%0A- Jumlah%20Diamond:%20%5BDIAMOND%5D%0A- Metode%20Pembayaran:%20%5BPAYMENT%5D"
+        class="btn"
+        id="whatsapp-btn"
+        target="_blank"
+      >
+        Kirim ke WhatsApp 📲
+      </a>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 MaxxZ TopUp. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("topup-form");
+    const btn = document.getElementById("whatsapp-btn");
+
+    form.addEventListener("input", () => {
+      const game = document.getElementById("game").value;
+      const idgame = document.getElementById("idgame").value;
+      const diamond = document.getElementById("diamond").value;
+      const payment = document.getElementById("payment").value;
+
+      const waLink = `https://wa.me/6287767104577?text=Halo,%20saya%20ingin%20melakukan%20top%20up%20dengan%20detail:%0A%0A- Game:%20${game}%0A- ID%20Game:%20${idgame}%0A- Jumlah%20Diamond:%20${diamond}%0A- Metode%20Pembayaran:%20${payment}`;
+      btn.href = waLink;
+    });
+  </script>
+</body>
+</html>
