@@ -1,152 +1,133 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MaxxZ TopUp</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background-color: #121212;
       color: #ffffff;
-      margin: 0;
-      padding: 0;
     }
+
     header {
-      background-color: #1f1f1f;
-      padding: 20px;
       text-align: center;
-      border-bottom: 2px solid #ff5722;
+      padding: 20px;
+      background-color: #1f1f1f;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
     }
+
     header h1 {
-      font-size: 2rem;
       margin: 0;
-      color: #ff5722;
+      font-size: 2.5rem;
     }
+
     .container {
       padding: 20px;
       max-width: 600px;
-      margin: auto;
+      margin: 0 auto;
     }
+
     .form-group {
       margin-bottom: 15px;
     }
+
     label {
       display: block;
       margin-bottom: 5px;
       font-weight: bold;
     }
-    input, select {
+
+    input, select, button {
       width: 100%;
       padding: 10px;
-      margin: 5px 0;
-      border: none;
-      border-radius: 5px;
-    }
-    select {
-      background-color: #1f1f1f;
-      color: #ffffff;
-    }
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      background-color: #ff5722;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
       font-size: 1rem;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
+      border: none;
+      border-radius: 5px;
     }
-    .btn:hover {
-      background-color: #e64a19;
-      cursor: pointer;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
+
+    input, select {
       background-color: #1f1f1f;
-      border-top: 2px solid #ff5722;
-      margin-top: 20px;
+      color: #ffffff;
+      border: 1px solid #444;
     }
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
+
+    button {
+      background-color: #007bff;
+      color: #ffffff;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .method-list {
+      margin: 10px 0;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>🔥 MaxxZ TopUp 🔥</h1>
+    <h1>MaxxZ TopUp 💎</h1>
   </header>
-
   <div class="container">
-    <form id="topup-form">
+    <form id="topupForm">
       <div class="form-group">
-        <label for="game">Pilih Game 🎮</label>
-        <select id="game" required>
-          <option value="">-- Pilih Game --</option>
+        <label for="game">Pilih Game:</label>
+        <select id="game" name="game" required>
+          <option value="" disabled selected>Pilih Game</option>
           <option value="freefire">Free Fire</option>
           <option value="mobilelegends">Mobile Legends</option>
         </select>
       </div>
-
       <div class="form-group">
-        <label for="idgame">ID Game 🆔</label>
-        <input type="text" id="idgame" placeholder="Masukkan ID Game Anda" required>
+        <label for="id">Masukkan ID:</label>
+        <input type="text" id="id" name="id" placeholder="Masukkan ID Game Anda" required>
       </div>
-
       <div class="form-group">
-        <label for="diamond">Jumlah Diamond 💎</label>
-        <select id="diamond" required>
-          <option value="">-- Pilih Jumlah Diamond --</option>
+        <label for="amount">Jumlah Top Up:</label>
+        <select id="amount" name="amount" required>
+          <option value="" disabled selected>Pilih Jumlah</option>
+          <option value="5">5 Diamond</option>
+          <option value="10">10 Diamond</option>
+          <option value="50">50 Diamond</option>
           <option value="100">100 Diamond</option>
-          <option value="200">200 Diamond</option>
-          <option value="500">500 Diamond</option>
         </select>
       </div>
-
       <div class="form-group">
-        <label for="payment">Metode Pembayaran 💳</label>
-        <select id="payment" required>
-          <option value="">-- Pilih Metode Pembayaran --</option>
+        <label for="payment">Metode Pembayaran:</label>
+        <select id="payment" name="payment" required>
+          <option value="" disabled selected>Pilih Metode Pembayaran</option>
           <option value="gopay">GoPay</option>
           <option value="ovo">OVO</option>
-          <option value="dana">Dana</option>
+          <option value="dana">DANA</option>
           <option value="pulsa">Pulsa</option>
         </select>
       </div>
-
-      <a
-        href="https://wa.me/6287767104577?text=Halo,%20saya%20ingin%20melakukan%20top%20up%20dengan%20detail:%0A%0A- Game:%20%5BGAME%5D%0A- ID%20Game:%20%5BIDGAME%5D%0A- Jumlah%20Diamond:%20%5BDIAMOND%5D%0A- Metode%20Pembayaran:%20%5BPAYMENT%5D"
-        class="btn"
-        id="whatsapp-btn"
-        target="_blank"
-      >
-        Kirim ke WhatsApp 📲
-      </a>
+      <button type="submit">Top Up Sekarang 💸</button>
     </form>
   </div>
-
-  <footer>
-    <p>&copy; 2025 MaxxZ TopUp. All rights reserved.</p>
-  </footer>
-
   <script>
-    const form = document.getElementById("topup-form");
-    const btn = document.getElementById("whatsapp-btn");
+    document.getElementById('topupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const game = document.getElementById('game').value;
+      const id = document.getElementById('id').value;
+      const amount = document.getElementById('amount').value;
+      const payment = document.getElementById('payment').value;
 
-    form.addEventListener("input", () => {
-      const game = document.getElementById("game").value;
-      const idgame = document.getElementById("idgame").value;
-      const diamond = document.getElementById("diamond").value;
-      const payment = document.getElementById("payment").value;
+      if (!game || !id || !amount || !payment) {
+        alert('Silakan isi semua data!');
+        return;
+      }
 
-      const waLink = `https://wa.me/6287767104577?text=Halo,%20saya%20ingin%20melakukan%20top%20up%20dengan%20detail:%0A%0A- Game:%20${game}%0A- ID%20Game:%20${idgame}%0A- Jumlah%20Diamond:%20${diamond}%0A- Metode%20Pembayaran:%20${payment}`;
-      btn.href = waLink;
+      const whatsappMessage = `Halo, saya ingin top-up game:\nGame: ${game}\nID: ${id}\nJumlah: ${amount} Diamond\nMetode Pembayaran: ${payment}`;
+      const whatsappURL = `https://wa.me/6287767104577?text=${encodeURIComponent(whatsappMessage)}`;
+
+      window.open(whatsappURL, '_blank');
     });
   </script>
 </body>
